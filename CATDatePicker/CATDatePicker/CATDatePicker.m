@@ -161,6 +161,24 @@ NS_INLINE CATDateRange CATDateRangeInfinity() {
     return ceilf(MAX(MAX(normal.size.width, disable.size.width), highlight.size.width));
 }
 
+#pragma mark transfer
+- (NSInteger)rowForValue:(NSInteger)value {
+    return value - CATDateRangeMin(_naturalRange);
+}
+- (NSInteger)valueForRow:(NSInteger)row {
+    return CATDateRangeMin(_naturalRange) + row;
+}
+- (CGFloat)offsetForRow:(NSInteger)row {
+    CGFloat offset = row * [self lineHeight];
+    if (_cyclic) offset += floor(kCyclicFilling / 2) * [self numberOfItemsInSection:0] * [self lineHeight];
+    return offset;
+}
+- (NSInteger)rowForOffset:(CGFloat)offset {
+    NSInteger row = offset / [self lineHeight];
+    if (_cyclic) row = row % [self numberOfItemsInSection:0];
+    return row;
+}
+
 #pragma mark query
 - (CGFloat)lineHeight {
     return self.collectionViewLayout.itemSize.height;
@@ -177,31 +195,13 @@ NS_INLINE CATDateRange CATDateRangeInfinity() {
         return row;
     }
 }
-- (NSInteger)currentRow {
-    if (_cyclic) {
-        CGFloat pageHeight = [self numberOfItemsInSection:0] * [self lineHeight];
-        return fmod(self.contentOffset.y, pageHeight) / [self lineHeight];
-    } else {
-        return self.contentOffset.y / [self lineHeight];
-    }
-}
 
 #pragma mark modification
-- (void)ensureCyclicLayout {
-    if (_cyclic) {
-        CGFloat pageHeight = [self numberOfItemsInSection:0] * [self lineHeight];
-        self.contentOffset = CGPointMake(0, fmod(self.contentOffset.y, pageHeight) + floor(kCyclicFilling / 2) * pageHeight);
-    }
-}
 - (void)centerizeValue:(NSInteger)value {
-    [self centerizeRow:value - CATDateRangeMin(_naturalRange)];
+    [self centerizeRow:[self rowForValue:value]];
 }
 - (void)centerizeRow:(NSInteger)row {
-    [self.collectionViewLayout invalidateLayout];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:_cyclic ? round(kCyclicFilling / 2) : 0];
-    UICollectionViewLayoutAttributes *attributes = [self layoutAttributesForItemAtIndexPath:indexPath];
-    [self setContentOffset:CGPointMake(attributes.frame.origin.x, attributes.frame.origin.y - [self paddingHeight])
-                  animated:!_flag.moveToWindowRevalidate];
+    [self setContentOffset:CGPointMake(0, [self offsetForRow:row]) animated:!_flag.moveToWindowRevalidate];
 }
 - (void)centerizeAndNotifyRow:(NSInteger)row {
     [self centerizeRow:row];
@@ -210,8 +210,9 @@ NS_INLINE CATDateRange CATDateRangeInfinity() {
 
 #pragma mark event
 - (void)pickerDragged {
-    [self ensureCyclicLayout];
-    [self centerizeAndNotifyRow:[self validatedRow:[self currentRow]]];
+    // ensure cyclic layout centerization
+    self.contentOffset = CGPointMake(0, [self offsetForRow:[self rowForOffset:self.contentOffset.y]]);
+    [self centerizeAndNotifyRow:[self validatedRow:[self rowForOffset:self.contentOffset.y]]];
 }
 
 #pragma mark UICollectionViewDataSource
