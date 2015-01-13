@@ -8,44 +8,44 @@
 
 #import <Foundation/Foundation.h>
 
-/** 每分钟秒数 */
+/** seconds per minute */
 #define CATSecondsPerMinute 60.f
-/** 每小时分钟数 */
+/** minutes per hour */
 #define CATMinutesPerHour   60.f
-/** 每天小时数 */
+/** hours per day */
 #define CATHoursPerDay      24.f
-/** 每小时秒数 */
+/** seconds per hour */
 #define CATSecondsPerHour   (CATMinutesPerHour * CATSecondsPerMinute)
-/** 每天秒数 */
+/** seconds per day */
 #define CATSecondsPerDay    (CATHoursPerDay * CATMinutesPerHour * CATSecondsPerMinute)
-/** 每周天数 */
+/** days per week */
 #define CATDaysPerWeek      7.f
 
 @interface NSDate (CATKit)
 
 #pragma mark date from offset
 /**
- 按分钟偏移日期
- @param minutes 偏移分钟数
- @return 偏移日期
+ offset date by minutes
+ @param minutes number of minutes to be added on receiver
+ @return offset date
  */
 - (NSDate *)cat_dateByAddingMinutes:(NSInteger)minutes;
 /**
- 按小时偏移日期
- @param minutes 偏移小时数
- @return 偏移日期
+ offset date by hours
+ @param hours   number of hours to be added on receiver
+ @return offset date
  */
 - (NSDate *)cat_dateByAddingHours:(NSInteger)hours;
 /**
- 按天偏移日期
- @param minutes 偏移天数
- @return 偏移日期
+ offset date by days
+ @param days    number of days to be added on receiver
+ @return offset date
  */
 - (NSDate *)cat_dateByAddingDays:(NSInteger)days;
 /**
- 按周钟偏移日期
- @param minutes 偏移周数
- @return 偏移日期
+ offset date by weeks
+ @param weeks   number of weeks to be added on receiver
+ @return offset date
  */
 - (NSDate *)cat_dateByAddingWeeks:(NSInteger)weeks;
 

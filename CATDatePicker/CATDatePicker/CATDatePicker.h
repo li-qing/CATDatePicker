@@ -48,32 +48,32 @@ typedef NS_OPTIONS (NSUInteger, CATDatePickerUnit) {
 @property (strong, nonatomic) NSDate *minimumDate;
 /** maximum date, should be later than minimumDate */
 @property (strong, nonatomic) NSDate *maximumDate;
-/** 日期 */
+/** current date */
 @property (strong, nonatomic) NSDate *date;
 
 #pragma mark appearance
-/** 每个构成是否自适应宽度 */
+/** use fitting width for components */
 @property (assign, nonatomic) BOOL fittingWidth;
-/** 行高 */
+/** line height for components */
 @property (assign, nonatomic) CGFloat lineHeight;
-/** 标题通常状态样式 */
+/** title style for normal state */
 @property (copy, nonatomic) NSDictionary *normalAttributes;
-/** 标题高亮状态样式 */
+/** title style for highlight state */
 @property (copy, nonatomic) NSDictionary *highlightAttributes;
-/** 标题无效状态样式 */
+/** title style for disable state */
 @property (copy, nonatomic) NSDictionary *disableAttributes;
 
 #pragma mark format
 /**
- 获取日期构成显示格式
- @param unit 日期构成
- @return 显示格式
+ get date formatter for component
+ @param unit    date component
+ @return date formatter
  */
 - (NSDateFormatter *)formatterForUnit:(CATDatePickerUnit)unit;
 /**
- 设定日期构成显示格式
- @param formatter 显示格式
- @param unit 日期构成
+ set date formatter for component
+ @param formatter   date formatter
+ @param unit        date component
  */
 - (void)setFormatter:(NSDateFormatter *)formatter forUnit:(CATDatePickerUnit)unit;
 @end
