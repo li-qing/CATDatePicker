@@ -42,6 +42,9 @@ NS_INLINE CATDateRange CATDateRangeInfinity() {
     result.length = 1000000;
     return result;
 }
+NS_INLINE BOOL CATDateRangeEqualToRange(CATDateRange range1, CATDateRange range2) {
+    return range1.location = range2.location && range1.length == range2.length;
+}
 
 #pragma mark -
 @interface CATDateUnitCell : UICollectionViewCell
@@ -90,14 +93,7 @@ NS_INLINE CATDateRange CATDateRangeInfinity() {
 #define kCyclicFilling 0xFF
 #define kReuseIdentifer @"Cell"
 
-@interface CATDateUnitPicker : UICollectionView <
-    UICollectionViewDataSource,
-    UICollectionViewDelegateFlowLayout
-> {
-    struct {
-        unsigned int moveToWindowRevalidate : 1;
-    } _flag;
-}
+@interface CATDateUnitPicker : UICollectionView <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 // layout settings
 @property (strong, nonatomic) UICollectionViewFlowLayout *collectionViewLayout;
 @property (assign, nonatomic) BOOL cyclic;
@@ -134,11 +130,7 @@ NS_INLINE CATDateRange CATDateRangeInfinity() {
 }
 - (void)didMoveToWindow {
     [super didMoveToWindow];
-    if (self.window) {
-        _flag.moveToWindowRevalidate = YES;
-        [self revalidate];
-        _flag.moveToWindowRevalidate = NO;
-    }
+    if (self.window) [self revalidate];
 }
 
 - (void)revalidate {
@@ -197,21 +189,19 @@ NS_INLINE CATDateRange CATDateRangeInfinity() {
 }
 
 #pragma mark modification
-- (void)centerizeValue:(NSInteger)value {
-    [self centerizeRow:[self rowForValue:value]];
+- (void)centerizeValue:(NSInteger)value animated:(BOOL)animated {
+    [self centerizeRow:[self rowForValue:value] animated:animated];
 }
-- (void)centerizeRow:(NSInteger)row {
-    [self setContentOffset:CGPointMake(0, [self offsetForRow:row]) animated:!_flag.moveToWindowRevalidate];
+- (void)centerizeRow:(NSInteger)row animated:(BOOL)animated {
+    [self setContentOffset:CGPointMake(0, [self offsetForRow:row]) animated:animated];
 }
 - (void)centerizeAndNotifyRow:(NSInteger)row {
-    [self centerizeRow:row];
+    [self centerizeRow:row animated:YES];
     _pickUpValue(CATDateRangeMin(_naturalRange) + row);
 }
 
 #pragma mark event
 - (void)pickerDragged {
-    // ensure cyclic layout centerization
-    self.contentOffset = CGPointMake(0, [self offsetForRow:[self rowForOffset:self.contentOffset.y]]);
     [self centerizeAndNotifyRow:[self validatedRow:[self rowForOffset:self.contentOffset.y]]];
 }
 
@@ -238,7 +228,6 @@ NS_INLINE CATDateRange CATDateRangeInfinity() {
 #pragma mark UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    
     if ([self validatedRow:indexPath.row] == indexPath.row) {
         [self centerizeAndNotifyRow:indexPath.row];
     }
@@ -270,7 +259,9 @@ NS_INLINE CATDateRange CATDateRangeInfinity() {
 @end
 
 #pragma mark -
-@interface CATDatePicker ()
+@interface CATDatePicker () {
+    BOOL _disablePickerAnimation;
+}
 @property (strong, nonatomic) NSMutableArray *pickers;
 @property (strong, nonatomic) NSMutableDictionary *formatterByUnits;
 @end
@@ -319,11 +310,46 @@ NS_INLINE CATDateRange CATDateRangeInfinity() {
 
 - (void)willMoveToWindow:(UIWindow *)newWindow {
     [super willMoveToWindow:newWindow];
-    if (newWindow) [self cat_reloadPickers];
+    if (newWindow) {
+        _disablePickerAnimation = YES;
+        [self cat_reloadPickers];
+        _disablePickerAnimation = NO;
+    }
 }
 
+#pragma mark layout
 - (CGSize)sizeThatFits:(CGSize)size {
     return CGSizeMake([[_pickers valueForKeyPath:@"@sum.preferredWidth"] doubleValue], _lineHeight * 3);
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    if (_fittingWidth) {
+        CGFloat totalWidth = [[_pickers valueForKeyPath:@"@sum.preferredWidth"] doubleValue];
+        CGFloat filling = floor((CGRectGetWidth(self.frame) - totalWidth) / [_pickers count]);
+        CGFloat x = 0;
+        
+        for (int i = 0; i < [_pickers count]; i++) {
+            CATDateUnitPicker *picker = _pickers[i];
+            CGFloat width = picker.preferredWidth + filling;
+            picker.frame = CGRectMake(x, 0, width, CGRectGetHeight(self.frame));
+            x += width;
+        }
+    } else {
+        CGFloat width = round((CGRectGetWidth(self.frame)) / [_pickers count]);
+        CGFloat x = 0;
+        
+        for (int i = 0; i < [_pickers count]; i++) {
+            CATDateUnitPicker *picker = _pickers[i];
+            picker.frame = CGRectMake(x, 0, width, CGRectGetHeight(self.frame));
+            x += width;
+        }
+    }
+    
+    _disablePickerAnimation = YES;
+    [self cat_revalidate];
+    _disablePickerAnimation = NO;
 }
 
 #pragma mark property
@@ -377,12 +403,13 @@ NS_INLINE CATDateRange CATDateRangeInfinity() {
     }
 }
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if (!self.window) {
-        return;
-    } else if ([[[self class] propertiesNeedsReload] containsObject:keyPath]) {
-        [self cat_reloadPickers];
+    if ([[[self class] propertiesNeedsReload] containsObject:keyPath]) {
+        if (self.window) [self cat_reloadPickers];
     } else if ([[[self class] propertiesNeedsRelayout] containsObject:keyPath]) {
-        [UIView animateWithDuration:0.5f animations:^{[self cat_layoutPickers];}];
+        [self setNeedsLayout];
+        if (self.window) [UIView animateWithDuration:0.5f animations:^{
+            [self layoutIfNeeded];
+        }];
     }
 }
 
@@ -528,8 +555,7 @@ NS_INLINE CATDateRange CATDateRangeInfinity() {
     }
 }
 
-- (CATDateRange)cat_validateRangeForUnit:(CATDatePickerUnit)unit ofDate:(NSDate *)date {
-    CATDateRange naturalRange = [self cat_naturalRangeForUnit:unit ofDate:date];
+- (CATDateRange)cat_validateRange:(CATDateRange)naturalRange forUnit:(CATDatePickerUnit)unit ofDate:(NSDate *)date {
     NSInteger min = CATDateRangeMin(naturalRange);
     NSInteger max = CATDateRangeMax(naturalRange);
     NSDate *rangeMinDate = [self cat_date:date setUnit:unit toValue:min];
@@ -622,10 +648,17 @@ NS_INLINE CATDateRange CATDateRangeInfinity() {
     picker.validate = ^() {
         __strong typeof(_weak_self_) self = _weak_self_;
         __strong typeof(_weak_picker_) picker = _weak_picker_;
+        CATDateRange naturalRange = picker.naturalRange;
+        CATDateRange validRange = picker.validRange;
         picker.naturalRange = [self cat_naturalRangeForUnit:unit ofDate:self.date];
-        picker.validRange = [self cat_validateRangeForUnit:unit ofDate:self.date];
-        [picker reloadData];
-        [picker centerizeValue:[self cat_valueForUnit:unit ofDate:self.date]];
+        picker.validRange = [self cat_validateRange:picker.naturalRange forUnit:unit ofDate:self.date];
+
+        BOOL changed = NO
+        || !CATDateRangeEqualToRange(naturalRange, picker.naturalRange)
+        || !CATDateRangeEqualToRange(validRange, picker.validRange);
+        if (changed) [picker reloadData];
+        
+        [picker centerizeValue:[self cat_valueForUnit:unit ofDate:self.date] animated:!self->_disablePickerAnimation];
     };
     
     // pick callback
@@ -641,8 +674,8 @@ NS_INLINE CATDateRange CATDateRangeInfinity() {
         return [formatter stringFromDate:[self cat_date:self.date setUnit:unit toValue:value]];
     };
     
-    [picker revalidate];
     [_pickers addObject:picker];
+    [self addSubview:picker];
 }
 
 - (void)cat_reloadPickers {
@@ -654,33 +687,7 @@ NS_INLINE CATDateRange CATDateRangeInfinity() {
     [self cat_loadPickerForUnit:CATDatePickerUnitHour];
     [self cat_loadPickerForUnit:CATDatePickerUnitMinute];
     [self cat_loadPickerForUnit:CATDatePickerUnitSecond];
-    [self cat_layoutPickers];
-}
-
-- (void)cat_layoutPickers {
-    if (_fittingWidth) {
-        CGFloat totalWidth = [[_pickers valueForKeyPath:@"@sum.preferredWidth"] doubleValue];
-        CGFloat filling = floor((CGRectGetWidth(self.frame) - totalWidth) / [_pickers count]);
-        CGFloat x = 0;
-        
-        for (int i = 0; i < [_pickers count]; i++) {
-            CATDateUnitPicker *picker = _pickers[i];
-            CGFloat width = picker.preferredWidth + filling;
-            picker.frame = CGRectMake(x, 0, width, CGRectGetHeight(self.frame));
-            [self addSubview:picker];
-            x += width;
-        }
-    } else {
-        CGFloat width = round((CGRectGetWidth(self.frame)) / [_pickers count]);
-        CGFloat x = 0;
-        
-        for (int i = 0; i < [_pickers count]; i++) {
-            CATDateUnitPicker *picker = _pickers[i];
-            picker.frame = CGRectMake(x, 0, width, CGRectGetHeight(self.frame));
-            [self addSubview:picker];
-            x += width;
-        }
-    }
+    [self setNeedsLayout];
 }
 
 #pragma mark validate
