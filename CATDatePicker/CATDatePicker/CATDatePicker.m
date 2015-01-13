@@ -193,7 +193,9 @@ NS_INLINE BOOL CATDateRangeEqualToRange(CATDateRange range1, CATDateRange range2
     [self centerizeRow:[self rowForValue:value] animated:animated];
 }
 - (void)centerizeRow:(NSInteger)row animated:(BOOL)animated {
-    [self setContentOffset:CGPointMake(0, [self offsetForRow:row]) animated:animated];
+    if (!self.dragging && !self.decelerating) {
+        [self setContentOffset:CGPointMake(0, [self offsetForRow:row]) animated:animated];
+    }
 }
 - (void)centerizeAndNotifyRow:(NSInteger)row {
     [self centerizeRow:row animated:YES];
