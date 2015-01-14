@@ -47,6 +47,12 @@ typedef NS_ENUM(NSInteger, CATWeekday) {
  */
 - (NSDate *)cat_startOfYearForDate:(NSDate *)date;
 /**
+ get era's first date of a given date.
+ @param date    given date
+ @return era's first date
+ */
+- (NSDate *)cat_startOfEraForDate:(NSDate *)date;
+/**
  offset a specific component of NSDate
  @param unit    specific component
  @param value   value of the specific component

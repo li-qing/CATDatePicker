@@ -39,7 +39,7 @@ NS_INLINE CATDateRange CATDateRangeWithRange(NSRange range) {
 NS_INLINE CATDateRange CATDateRangeInfinity() {
     CATDateRange result;
     result.location = 0;
-    result.length = 1000000;
+    result.length = 0x000FFFFF;
     return result;
 }
 NS_INLINE BOOL CATDateRangeEqualToRange(CATDateRange range1, CATDateRange range2) {
@@ -199,7 +199,7 @@ NS_INLINE BOOL CATDateRangeEqualToRange(CATDateRange range1, CATDateRange range2
 }
 - (void)centerizeAndNotifyRow:(NSInteger)row {
     [self centerizeRow:row animated:YES];
-    _pickUpValue(CATDateRangeMin(_naturalRange) + row);
+    _pickUpValue([self valueForRow:row]);
 }
 
 #pragma mark event
@@ -217,9 +217,9 @@ NS_INLINE BOOL CATDateRangeEqualToRange(CATDateRange range1, CATDateRange range2
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CATDateUnitCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kReuseIdentifer forIndexPath:indexPath];
-    NSInteger value = CATDateRangeMin(_naturalRange) + indexPath.row;
+    NSInteger value = [self valueForRow:indexPath.row];
     cell.titleLabel.text = _titleForValue(value);
-    cell.enabled = CATLocationInDateRange(indexPath.row + CATDateRangeMin(_naturalRange), _validRange);
+    cell.enabled = CATLocationInDateRange(value, _validRange);
     cell.normalAttributes = _normalAttributes;
     cell.highlightAttributes = _highlightAttributes;
     cell.disableAttributes = _disableAttributes;
@@ -416,10 +416,6 @@ NS_INLINE BOOL CATDateRangeEqualToRange(CATDateRange range1, CATDateRange range2
 }
 
 #pragma mark transfer value <-> date
-- (NSDate *)cat_originDate {
-    return [_calendar dateFromComponents:[[NSDateComponents alloc] init]];
-}
-
 - (NSInteger)cat_valueForUnit:(CATDatePickerUnit)unit ofDate:(NSDate *)date {
     switch (unit) {
         case CATDatePickerUnitEra: {
@@ -429,7 +425,8 @@ NS_INLINE BOOL CATDateRangeEqualToRange(CATDateRange range1, CATDateRange range2
             if (_units & CATDatePickerUnitEra) {
                 return [_calendar cat_component:NSCalendarUnitYear fromDate:date];
             } else {
-                return [_calendar components:NSCalendarUnitYear fromDate:[self cat_originDate] toDate:date options:kNilOptions].year;
+                NSDate *origin = [_calendar cat_startOfEraForDate:date];
+                return [_calendar components:NSCalendarUnitYear fromDate:origin toDate:date options:kNilOptions].year;
             }
         }
         case CATDatePickerUnitMonth: {
@@ -439,7 +436,8 @@ NS_INLINE BOOL CATDateRangeEqualToRange(CATDateRange range1, CATDateRange range2
                 NSInteger delta = [_calendar components:NSCalendarUnitMonth fromDate:startOfYear toDate:date options:kNilOptions].month;
                 return [_calendar cat_component:NSCalendarUnitMonth fromDate:startOfYear] + delta;
             } else {
-                return [_calendar components:NSCalendarUnitMonth fromDate:[self cat_originDate] toDate:date options:kNilOptions].month;
+                NSDate *origin = [_calendar cat_startOfEraForDate:date];
+                return [_calendar components:NSCalendarUnitMonth fromDate:origin toDate:date options:kNilOptions].month;
             }
         }
         case CATDatePickerUnitDay: {
@@ -448,7 +446,8 @@ NS_INLINE BOOL CATDateRangeEqualToRange(CATDateRange range1, CATDateRange range2
             } else if (_units & CATDatePickerUnitYear) {
                 return [_calendar components:NSCalendarUnitDay fromDate:[_calendar cat_startOfYearForDate:date] toDate:date options:kNilOptions].day;
             } else {
-                return [_calendar components:NSCalendarUnitDay fromDate:[self cat_originDate] toDate:date options:kNilOptions].day;
+                NSDate *origin = [_calendar cat_startOfEraForDate:date];
+                return [_calendar components:NSCalendarUnitDay fromDate:origin toDate:date options:kNilOptions].day;
             }
         }
         case CATDatePickerUnitHour: {
@@ -476,14 +475,7 @@ NS_INLINE BOOL CATDateRangeEqualToRange(CATDateRange range1, CATDateRange range2
             result = [_calendar cat_dateByAddingUnit:NSCalendarUnitYear value:delta toDate:date options:kNilOptions];
         } break;
         case CATDatePickerUnitMonth: {
-            // handle leap month here
-            NSCalendarUnit collector = NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
-            if (_units & CATDatePickerUnitYear) {
-                collector = collector | NSCalendarUnitEra | NSCalendarUnitYear;
-            }
-            NSDate *from = [_calendar dateFromComponents:[_calendar components:collector fromDate:date]];
-            NSInteger delta = value - [self cat_naturalRangeForUnit:unit ofDate:date].location;
-            result = [_calendar cat_dateByAddingUnit:NSCalendarUnitMonth value:delta toDate:from options:kNilOptions];
+            result = [_calendar cat_dateByAddingUnit:NSCalendarUnitMonth value:delta toDate:date options:kNilOptions];
         } break;
         case CATDatePickerUnitDay: {
             result = [_calendar cat_dateByAddingUnit:NSCalendarUnitDay value:delta toDate:date options:kNilOptions];

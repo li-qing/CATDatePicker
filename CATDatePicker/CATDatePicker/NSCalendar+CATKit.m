@@ -37,6 +37,12 @@
     return [self dateFromComponents:components];
 }
 
+- (NSDate *)cat_startOfEraForDate:(NSDate *)date {
+    NSDateComponents *components = [[NSDateComponents alloc] init];
+    components.era = [self cat_component:NSCalendarUnitEra fromDate:date];
+    return [self dateFromComponents:components];
+}
+
 - (NSDate *)cat_dateByAddingUnit:(NSCalendarUnit)unit value:(NSInteger)value toDate:(NSDate *)date options:(NSCalendarOptions)opts {
     NSDateComponents *components = [[NSDateComponents alloc] init];
     [components cat_setValue:value forComponent:unit];
