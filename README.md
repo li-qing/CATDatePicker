@@ -2,7 +2,7 @@
 A flexible date picker for iOS.
 
 
-## Modivation to Implement a Date Picker
+## Motivation to Implement a Date Picker
 
 	typedef enum {
 	   UIDatePickerModeTime ,
