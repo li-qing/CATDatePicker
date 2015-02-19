@@ -1,6 +1,6 @@
 //
 //  CATDatePicker.h
-//  DatePicker
+//  CATDatePicker
 //
 //  Created by wit on 14-8-10.
 //  Copyright (c) 2014年 cat. All rights reserved.

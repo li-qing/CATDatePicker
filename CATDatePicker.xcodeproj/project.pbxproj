@@ -7,62 +7,62 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B6490351A62BA1200812FFF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6490341A62BA1200812FFF /* main.m */; };
-		5B6490381A62BA1200812FFF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6490371A62BA1200812FFF /* AppDelegate.m */; };
-		5B64903E1A62BA1200812FFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B64903C1A62BA1200812FFF /* Main.storyboard */; };
-		5B6490401A62BA1200812FFF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B64903F1A62BA1200812FFF /* Images.xcassets */; };
-		5B6490431A62BA1200812FFF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B6490411A62BA1200812FFF /* LaunchScreen.xib */; };
-		5B64904F1A62BA1200812FFF /* CATDatePickerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B64904E1A62BA1200812FFF /* CATDatePickerTests.m */; };
-		5B6490611A62BB3300812FFF /* NSCalendar+CATKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B64905A1A62BB3300812FFF /* NSCalendar+CATKit.m */; };
-		5B6490621A62BB3300812FFF /* NSDate+CATKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B64905C1A62BB3300812FFF /* NSDate+CATKit.m */; };
-		5B6490631A62BB3300812FFF /* CATDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B64905E1A62BB3300812FFF /* CATDatePicker.m */; };
-		5B6490641A62BB3300812FFF /* CATDatePickerLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6490601A62BB3300812FFF /* CATDatePickerLayout.m */; };
-		5B6490671A62C39C00812FFF /* CATCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6490661A62C39C00812FFF /* CATCategoryViewController.m */; };
+		5B428C541A960B9600C7283B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B428C531A960B9600C7283B /* main.m */; };
+		5B428C571A960B9600C7283B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B428C561A960B9600C7283B /* AppDelegate.m */; };
+		5B428C5F1A960B9600C7283B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B428C5E1A960B9600C7283B /* Images.xcassets */; };
+		5B428C621A960B9600C7283B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B428C601A960B9600C7283B /* LaunchScreen.xib */; };
+		5B428C6E1A960B9700C7283B /* DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B428C6D1A960B9700C7283B /* DemoTests.m */; };
+		5B428C781A960C5200C7283B /* CATCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B428C761A960C5200C7283B /* CATCategoryViewController.m */; };
+		5B428C791A960C5200C7283B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B428C771A960C5200C7283B /* Main.storyboard */; };
+		5B428C821A960C7400C7283B /* CATDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B428C7B1A960C7400C7283B /* CATDatePicker.m */; };
+		5B428C831A960C7400C7283B /* CATDatePickerLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B428C7D1A960C7400C7283B /* CATDatePickerLayout.m */; };
+		5B428C841A960C7400C7283B /* NSCalendar+CATKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B428C7F1A960C7400C7283B /* NSCalendar+CATKit.m */; };
+		5B428C851A960C7400C7283B /* NSDate+CATKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B428C811A960C7400C7283B /* NSDate+CATKit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5B6490491A62BA1200812FFF /* PBXContainerItemProxy */ = {
+		5B428C681A960B9600C7283B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5B6490271A62BA1200812FFF /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5B64902E1A62BA1200812FFF;
-			remoteInfo = CATDatePicker;
+			remoteGlobalIDString = 5B428C4E1A960B9600C7283B;
+			remoteInfo = Demo;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5B64902F1A62BA1200812FFF /* CATDatePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CATDatePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B6490331A62BA1200812FFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5B6490341A62BA1200812FFF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		5B6490361A62BA1200812FFF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		5B6490371A62BA1200812FFF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5B64903D1A62BA1200812FFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5B64903F1A62BA1200812FFF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		5B6490421A62BA1200812FFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		5B6490481A62BA1200812FFF /* CATDatePickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CATDatePickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B64904D1A62BA1200812FFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5B64904E1A62BA1200812FFF /* CATDatePickerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CATDatePickerTests.m; sourceTree = "<group>"; };
-		5B6490591A62BB3300812FFF /* NSCalendar+CATKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+CATKit.h"; sourceTree = "<group>"; };
-		5B64905A1A62BB3300812FFF /* NSCalendar+CATKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendar+CATKit.m"; sourceTree = "<group>"; };
-		5B64905B1A62BB3300812FFF /* NSDate+CATKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+CATKit.h"; sourceTree = "<group>"; };
-		5B64905C1A62BB3300812FFF /* NSDate+CATKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+CATKit.m"; sourceTree = "<group>"; };
-		5B64905D1A62BB3300812FFF /* CATDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATDatePicker.h; sourceTree = "<group>"; };
-		5B64905E1A62BB3300812FFF /* CATDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CATDatePicker.m; sourceTree = "<group>"; };
-		5B64905F1A62BB3300812FFF /* CATDatePickerLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATDatePickerLayout.h; sourceTree = "<group>"; };
-		5B6490601A62BB3300812FFF /* CATDatePickerLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CATDatePickerLayout.m; sourceTree = "<group>"; };
-		5B6490651A62C39C00812FFF /* CATCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATCategoryViewController.h; sourceTree = "<group>"; };
-		5B6490661A62C39C00812FFF /* CATCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CATCategoryViewController.m; sourceTree = "<group>"; };
+		5B428C4F1A960B9600C7283B /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B428C521A960B9600C7283B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B428C531A960B9600C7283B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5B428C551A960B9600C7283B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5B428C561A960B9600C7283B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5B428C5E1A960B9600C7283B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		5B428C611A960B9600C7283B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		5B428C671A960B9600C7283B /* DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B428C6C1A960B9700C7283B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B428C6D1A960B9700C7283B /* DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoTests.m; sourceTree = "<group>"; };
+		5B428C751A960C5200C7283B /* CATCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATCategoryViewController.h; sourceTree = "<group>"; };
+		5B428C761A960C5200C7283B /* CATCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CATCategoryViewController.m; sourceTree = "<group>"; };
+		5B428C771A960C5200C7283B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5B428C7A1A960C7400C7283B /* CATDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATDatePicker.h; sourceTree = "<group>"; };
+		5B428C7B1A960C7400C7283B /* CATDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CATDatePicker.m; sourceTree = "<group>"; };
+		5B428C7C1A960C7400C7283B /* CATDatePickerLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CATDatePickerLayout.h; sourceTree = "<group>"; };
+		5B428C7D1A960C7400C7283B /* CATDatePickerLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CATDatePickerLayout.m; sourceTree = "<group>"; };
+		5B428C7E1A960C7400C7283B /* NSCalendar+CATKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+CATKit.h"; sourceTree = "<group>"; };
+		5B428C7F1A960C7400C7283B /* NSCalendar+CATKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendar+CATKit.m"; sourceTree = "<group>"; };
+		5B428C801A960C7400C7283B /* NSDate+CATKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+CATKit.h"; sourceTree = "<group>"; };
+		5B428C811A960C7400C7283B /* NSDate+CATKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+CATKit.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5B64902C1A62BA1200812FFF /* Frameworks */ = {
+		5B428C4C1A960B9600C7283B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5B6490451A62BA1200812FFF /* Frameworks */ = {
+		5B428C641A960B9600C7283B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -72,11 +72,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B428C501A960B9600C7283B /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				5B428C551A960B9600C7283B /* AppDelegate.h */,
+				5B428C561A960B9600C7283B /* AppDelegate.m */,
+				5B428C751A960C5200C7283B /* CATCategoryViewController.h */,
+				5B428C761A960C5200C7283B /* CATCategoryViewController.m */,
+				5B428C5E1A960B9600C7283B /* Images.xcassets */,
+				5B428C601A960B9600C7283B /* LaunchScreen.xib */,
+				5B428C771A960C5200C7283B /* Main.storyboard */,
+				5B428C511A960B9600C7283B /* Supporting Files */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		5B428C511A960B9600C7283B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5B428C521A960B9600C7283B /* Info.plist */,
+				5B428C531A960B9600C7283B /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5B428C6A1A960B9700C7283B /* DemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				5B428C6D1A960B9700C7283B /* DemoTests.m */,
+				5B428C6B1A960B9700C7283B /* Supporting Files */,
+			);
+			path = DemoTests;
+			sourceTree = "<group>";
+		};
+		5B428C6B1A960B9700C7283B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5B428C6C1A960B9700C7283B /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		5B6490261A62BA1200812FFF = {
 			isa = PBXGroup;
 			children = (
 				5B6490311A62BA1200812FFF /* CATDatePicker */,
-				5B64904B1A62BA1200812FFF /* CATDatePickerTests */,
+				5B428C501A960B9600C7283B /* Demo */,
+				5B428C6A1A960B9700C7283B /* DemoTests */,
 				5B6490301A62BA1200812FFF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -84,8 +126,8 @@
 		5B6490301A62BA1200812FFF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5B64902F1A62BA1200812FFF /* CATDatePicker.app */,
-				5B6490481A62BA1200812FFF /* CATDatePickerTests.xctest */,
+				5B428C4F1A960B9600C7283B /* Demo.app */,
+				5B428C671A960B9600C7283B /* DemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,56 +135,14 @@
 		5B6490311A62BA1200812FFF /* CATDatePicker */ = {
 			isa = PBXGroup;
 			children = (
-				5B6490361A62BA1200812FFF /* AppDelegate.h */,
-				5B6490371A62BA1200812FFF /* AppDelegate.m */,
-				5B6490651A62C39C00812FFF /* CATCategoryViewController.h */,
-				5B6490661A62C39C00812FFF /* CATCategoryViewController.m */,
-				5B6490581A62BB1B00812FFF /* CATDatePicker */,
-				5B64903F1A62BA1200812FFF /* Images.xcassets */,
-				5B6490411A62BA1200812FFF /* LaunchScreen.xib */,
-				5B64903C1A62BA1200812FFF /* Main.storyboard */,
-				5B6490321A62BA1200812FFF /* Supporting Files */,
-			);
-			path = CATDatePicker;
-			sourceTree = "<group>";
-		};
-		5B6490321A62BA1200812FFF /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				5B6490331A62BA1200812FFF /* Info.plist */,
-				5B6490341A62BA1200812FFF /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		5B64904B1A62BA1200812FFF /* CATDatePickerTests */ = {
-			isa = PBXGroup;
-			children = (
-				5B64904E1A62BA1200812FFF /* CATDatePickerTests.m */,
-				5B64904C1A62BA1200812FFF /* Supporting Files */,
-			);
-			path = CATDatePickerTests;
-			sourceTree = "<group>";
-		};
-		5B64904C1A62BA1200812FFF /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				5B64904D1A62BA1200812FFF /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		5B6490581A62BB1B00812FFF /* CATDatePicker */ = {
-			isa = PBXGroup;
-			children = (
-				5B6490591A62BB3300812FFF /* NSCalendar+CATKit.h */,
-				5B64905A1A62BB3300812FFF /* NSCalendar+CATKit.m */,
-				5B64905B1A62BB3300812FFF /* NSDate+CATKit.h */,
-				5B64905C1A62BB3300812FFF /* NSDate+CATKit.m */,
-				5B64905D1A62BB3300812FFF /* CATDatePicker.h */,
-				5B64905E1A62BB3300812FFF /* CATDatePicker.m */,
-				5B64905F1A62BB3300812FFF /* CATDatePickerLayout.h */,
-				5B6490601A62BB3300812FFF /* CATDatePickerLayout.m */,
+				5B428C7A1A960C7400C7283B /* CATDatePicker.h */,
+				5B428C7B1A960C7400C7283B /* CATDatePicker.m */,
+				5B428C7C1A960C7400C7283B /* CATDatePickerLayout.h */,
+				5B428C7D1A960C7400C7283B /* CATDatePickerLayout.m */,
+				5B428C7E1A960C7400C7283B /* NSCalendar+CATKit.h */,
+				5B428C7F1A960C7400C7283B /* NSCalendar+CATKit.m */,
+				5B428C801A960C7400C7283B /* NSDate+CATKit.h */,
+				5B428C811A960C7400C7283B /* NSDate+CATKit.m */,
 			);
 			path = CATDatePicker;
 			sourceTree = "<group>";
@@ -150,39 +150,39 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5B64902E1A62BA1200812FFF /* CATDatePicker */ = {
+		5B428C4E1A960B9600C7283B /* Demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5B6490521A62BA1200812FFF /* Build configuration list for PBXNativeTarget "CATDatePicker" */;
+			buildConfigurationList = 5B428C731A960B9700C7283B /* Build configuration list for PBXNativeTarget "Demo" */;
 			buildPhases = (
-				5B64902B1A62BA1200812FFF /* Sources */,
-				5B64902C1A62BA1200812FFF /* Frameworks */,
-				5B64902D1A62BA1200812FFF /* Resources */,
+				5B428C4B1A960B9600C7283B /* Sources */,
+				5B428C4C1A960B9600C7283B /* Frameworks */,
+				5B428C4D1A960B9600C7283B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = CATDatePicker;
-			productName = CATDatePicker;
-			productReference = 5B64902F1A62BA1200812FFF /* CATDatePicker.app */;
+			name = Demo;
+			productName = Demo;
+			productReference = 5B428C4F1A960B9600C7283B /* Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5B6490471A62BA1200812FFF /* CATDatePickerTests */ = {
+		5B428C661A960B9600C7283B /* DemoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5B6490551A62BA1200812FFF /* Build configuration list for PBXNativeTarget "CATDatePickerTests" */;
+			buildConfigurationList = 5B428C741A960B9700C7283B /* Build configuration list for PBXNativeTarget "DemoTests" */;
 			buildPhases = (
-				5B6490441A62BA1200812FFF /* Sources */,
-				5B6490451A62BA1200812FFF /* Frameworks */,
-				5B6490461A62BA1200812FFF /* Resources */,
+				5B428C631A960B9600C7283B /* Sources */,
+				5B428C641A960B9600C7283B /* Frameworks */,
+				5B428C651A960B9600C7283B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5B64904A1A62BA1200812FFF /* PBXTargetDependency */,
+				5B428C691A960B9600C7283B /* PBXTargetDependency */,
 			);
-			name = CATDatePickerTests;
-			productName = CATDatePickerTests;
-			productReference = 5B6490481A62BA1200812FFF /* CATDatePickerTests.xctest */;
+			name = DemoTests;
+			productName = DemoTests;
+			productReference = 5B428C671A960B9600C7283B /* DemoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -194,12 +194,12 @@
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = cat;
 				TargetAttributes = {
-					5B64902E1A62BA1200812FFF = {
+					5B428C4E1A960B9600C7283B = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
-					5B6490471A62BA1200812FFF = {
+					5B428C661A960B9600C7283B = {
 						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = 5B64902E1A62BA1200812FFF;
+						TestTargetID = 5B428C4E1A960B9600C7283B;
 					};
 				};
 			};
@@ -216,24 +216,24 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5B64902E1A62BA1200812FFF /* CATDatePicker */,
-				5B6490471A62BA1200812FFF /* CATDatePickerTests */,
+				5B428C4E1A960B9600C7283B /* Demo */,
+				5B428C661A960B9600C7283B /* DemoTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5B64902D1A62BA1200812FFF /* Resources */ = {
+		5B428C4D1A960B9600C7283B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B64903E1A62BA1200812FFF /* Main.storyboard in Resources */,
-				5B6490431A62BA1200812FFF /* LaunchScreen.xib in Resources */,
-				5B6490401A62BA1200812FFF /* Images.xcassets in Resources */,
+				5B428C791A960C5200C7283B /* Main.storyboard in Resources */,
+				5B428C621A960B9600C7283B /* LaunchScreen.xib in Resources */,
+				5B428C5F1A960B9600C7283B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5B6490461A62BA1200812FFF /* Resources */ = {
+		5B428C651A960B9600C7283B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -243,51 +243,43 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5B64902B1A62BA1200812FFF /* Sources */ = {
+		5B428C4B1A960B9600C7283B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B6490611A62BB3300812FFF /* NSCalendar+CATKit.m in Sources */,
-				5B6490641A62BB3300812FFF /* CATDatePickerLayout.m in Sources */,
-				5B6490631A62BB3300812FFF /* CATDatePicker.m in Sources */,
-				5B6490381A62BA1200812FFF /* AppDelegate.m in Sources */,
-				5B6490621A62BB3300812FFF /* NSDate+CATKit.m in Sources */,
-				5B6490671A62C39C00812FFF /* CATCategoryViewController.m in Sources */,
-				5B6490351A62BA1200812FFF /* main.m in Sources */,
+				5B428C841A960C7400C7283B /* NSCalendar+CATKit.m in Sources */,
+				5B428C781A960C5200C7283B /* CATCategoryViewController.m in Sources */,
+				5B428C851A960C7400C7283B /* NSDate+CATKit.m in Sources */,
+				5B428C571A960B9600C7283B /* AppDelegate.m in Sources */,
+				5B428C821A960C7400C7283B /* CATDatePicker.m in Sources */,
+				5B428C541A960B9600C7283B /* main.m in Sources */,
+				5B428C831A960C7400C7283B /* CATDatePickerLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5B6490441A62BA1200812FFF /* Sources */ = {
+		5B428C631A960B9600C7283B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B64904F1A62BA1200812FFF /* CATDatePickerTests.m in Sources */,
+				5B428C6E1A960B9700C7283B /* DemoTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5B64904A1A62BA1200812FFF /* PBXTargetDependency */ = {
+		5B428C691A960B9600C7283B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5B64902E1A62BA1200812FFF /* CATDatePicker */;
-			targetProxy = 5B6490491A62BA1200812FFF /* PBXContainerItemProxy */;
+			target = 5B428C4E1A960B9600C7283B /* Demo */;
+			targetProxy = 5B428C681A960B9600C7283B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5B64903C1A62BA1200812FFF /* Main.storyboard */ = {
+		5B428C601A960B9600C7283B /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5B64903D1A62BA1200812FFF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		5B6490411A62BA1200812FFF /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5B6490421A62BA1200812FFF /* Base */,
+				5B428C611A960B9600C7283B /* Base */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -295,6 +287,64 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5B428C6F1A960B9700C7283B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Demo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5B428C701A960B9700C7283B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Demo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		5B428C711A960B9700C7283B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = DemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Demo.app/Demo";
+			};
+			name = Debug;
+		};
+		5B428C721A960B9700C7283B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = DemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Demo.app/Demo";
+			};
+			name = Release;
+		};
 		5B6490501A62BA1200812FFF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -371,86 +421,32 @@
 			};
 			name = Release;
 		};
-		5B6490531A62BA1200812FFF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = CATDatePicker/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		5B6490541A62BA1200812FFF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = CATDatePicker/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		5B6490561A62BA1200812FFF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = CATDatePickerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CATDatePicker.app/CATDatePicker";
-			};
-			name = Debug;
-		};
-		5B6490571A62BA1200812FFF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = CATDatePickerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CATDatePicker.app/CATDatePicker";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5B428C731A960B9700C7283B /* Build configuration list for PBXNativeTarget "Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B428C6F1A960B9700C7283B /* Debug */,
+				5B428C701A960B9700C7283B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B428C741A960B9700C7283B /* Build configuration list for PBXNativeTarget "DemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B428C711A960B9700C7283B /* Debug */,
+				5B428C721A960B9700C7283B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5B64902A1A62BA1200812FFF /* Build configuration list for PBXProject "CATDatePicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B6490501A62BA1200812FFF /* Debug */,
 				5B6490511A62BA1200812FFF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5B6490521A62BA1200812FFF /* Build configuration list for PBXNativeTarget "CATDatePicker" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5B6490531A62BA1200812FFF /* Debug */,
-				5B6490541A62BA1200812FFF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5B6490551A62BA1200812FFF /* Build configuration list for PBXNativeTarget "CATDatePickerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5B6490561A62BA1200812FFF /* Debug */,
-				5B6490571A62BA1200812FFF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

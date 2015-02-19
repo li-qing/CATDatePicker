@@ -1,6 +1,6 @@
 //
 //  CATDatePickerLayout.m
-//  DatePicker
+//  CATDatePicker
 //
 //  Created by wit on 14-8-12.
 //  Copyright (c) 2014年 cat. All rights reserved.
