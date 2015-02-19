@@ -31,13 +31,13 @@ typedef NS_ENUM(NSInteger, CATWeekday) {
 /**
  get week's first date of a given date.
  @param date    given date
- @return year's first date
+ @return week's first date
  */
 - (NSDate *)cat_startOfWeekForDate:(NSDate *)date;
 /**
  get month first date of a given date.
  @param date    given date
- @return year's first date
+ @return month's first date
  */
 - (NSDate *)cat_startOfMonthForDate:(NSDate *)date;
 /**
